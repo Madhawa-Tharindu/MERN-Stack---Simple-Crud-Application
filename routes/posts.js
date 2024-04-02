@@ -20,4 +20,20 @@ router.post('/post/save', async (req, res) => {
     }
 });
 
+//get all posts
+router.get('/posts', (req, res) => {
+    Post.find().exec()
+        .then(posts => {
+            return res.status(200).json({
+                success: true,
+                existingPosts: posts
+            });
+        })
+        .catch(err => {
+            return res.status(400).json({
+                error: err.message
+            });
+        });
+});
+
 export default router;
