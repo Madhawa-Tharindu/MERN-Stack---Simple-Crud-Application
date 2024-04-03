@@ -36,6 +36,19 @@ router.get('/posts', (req, res) => {
         });
 });
 
+//get specific post
+router.get('/post/:id', (req, res) => {
+    const postId = req.params.id;
+
+    Post.findById(postId)
+        .then(posts => {
+            return res.status(200).json({
+                success: true,
+                posts
+        });
+    })
+})
+
 // update an user
 router.put('/post/update/:id', (req, res) => {
     Post.findByIdAndUpdate(req.params.id, req.body, { new: true })
