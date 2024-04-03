@@ -1,4 +1,4 @@
-
+/*
 
 // get an idea about the class component vs functional component
 // initially I have created a class component for getting all post
@@ -51,3 +51,6 @@ export default class App extends Component {
     )
 }
 } 
+
+
+*/
