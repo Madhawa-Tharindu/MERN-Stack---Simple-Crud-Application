@@ -57,7 +57,7 @@ export default class App extends Component {
 
 // functional component using ES6 syntax
 import React, { useState, useEffect } from "react";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import axios from "axios";
 
 const App = () => {
@@ -80,8 +80,6 @@ const App = () => {
         alert(err + "Error while fetching posts!");
       });
   };
-
-  
 
   return (
     <div className="container">
@@ -114,19 +112,28 @@ const App = () => {
                   <td>{post.description}</td>
                   <td>{post.postCategory}</td>
                   <td>
-                    <button className="btn btn-primary">
-                      <i className="fas fa-edit">&nbsp;Edit</i>
-                    </button>
+                    <Link to={`/post/:id`}>
+                      <button className="btn btn-primary">
+                        <i className="fas fa-edit">&nbsp;Edit</i>
+                      </button>
+                    </Link>
                   </td>
                   <td>
-                    <button className="btn btn-danger">
-                      <i className="fas fa-trash">&nbsp;Delete</i>
-                    </button>
+                    <Link>
+                      <button className="btn btn-danger">
+                        <i className="fas fa-trash">&nbsp;Delete</i>
+                      </button>
+                    </Link>
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
+          <Link to={`/add`}>
+          <button className="btn btn-success">
+            <i className="fas fa-pen">&nbsp;Create a Post</i>
+          </button>
+          </Link>
         </div>
       </div>
     </div>
