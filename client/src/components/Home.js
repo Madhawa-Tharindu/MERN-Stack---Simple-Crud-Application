@@ -69,7 +69,7 @@ const App = () => {
 
   const getPosts = () => {
     axios
-      .get("http://localhost:8000/posts")
+      .get("/posts")
       .then((res) => {
         if (res.data.success === true) {
           setPosts(res.data.existingPosts);

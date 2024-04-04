@@ -8,15 +8,16 @@ import NavBar from './components/NavBar';
 
 const App = () => {
   return (
+    
     <Router>
+      <div className="container">
+        <NavBar />
+    </div>
       <Routes>
-        <div className='container'>
-          <NavBar />
         <Route exact path="/" element={<Home />} />
         <Route exact path="/add" element={<CreatePost />} />
         <Route exact path="/edit" element={<EditPost />} />
         <Route exact path="/post/:id" element={<PostDetail />} />
-        </div>
         </Routes>
     </Router>
   )
