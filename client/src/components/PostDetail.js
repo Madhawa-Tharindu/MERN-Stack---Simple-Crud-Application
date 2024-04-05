@@ -9,15 +9,15 @@ const PostDetails = () => {
 
     useEffect(() => {
         getPostDetails();
-    });
+    }, []);
 
     const getPostDetails = () => {
         axios
             .get(`/post/${id}`)
             .then((res) => {
                 if (res.data.success === true) {
-                    setPostDetails(res.data.posts);
-                    console.log(postDetail);
+                   setPostDetails(res.data.posts ? [res.data.posts] : []); // Set postDetail to an array with a single post object
+                    //console.log(postDetail);
                     console.log(res.data, "data was received successfully!");
                 }
             })
@@ -58,7 +58,7 @@ const PostDetails = () => {
                   <td>{post.description}</td>
                   <td>{post.postCategory}</td>
                   <td>
-                    <Link to={`/post/:id`}>
+                    <Link>
                       <button className="btn btn-primary">
                         <i className="fas fa-edit">&nbsp;Edit</i>
                       </button>
@@ -75,7 +75,7 @@ const PostDetails = () => {
               ))}
             </tbody>
           </table>
-          <Link to={`/add`}>
+          <Link>
           <button className="btn btn-success">
             <i className="fas fa-pen">&nbsp;Create a Post</i>
           </button>
