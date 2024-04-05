@@ -15,16 +15,15 @@ const PostDetails = () => {
         axios
             .get(`/post/${id}`)
             .then((res) => {
+              console.log("First then block"); // Add this line for debugging
                 if (res.data.success === true) {
                    setPostDetails(res.data.posts ? [res.data.posts] : []); // Set postDetail to an array with a single post object
-                    //console.log(postDetail);
                     console.log(res.data, "data was received successfully!");
                 }
             })
             .catch((err) => {
                 alert(err + "Error while fetching posts!");
             });
-    
     }
 
     return (
