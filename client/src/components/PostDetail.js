@@ -169,5 +169,3 @@ export default PostDetails;
 // }
 
 // export default PostDetails;
-
-csdfdfdfvdvxvvdzvd
