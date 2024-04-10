@@ -82,10 +82,12 @@ const App = () => {
   };
 
   const onDelete = (id) => {
-
+    console.log("Deleting post with id:", id); // Added debugging statement
     axios.delete(`/post/delete/${id}`).then((res) => {
       alert("Post Deleted Successfully");
-      this.getPosts();
+      getPosts();
+    }).catch((err) => {
+      alert(err + "Error while deleting post");
     });
   }
 
@@ -128,7 +130,7 @@ const App = () => {
                   </td>
                   <td>
                     <Link >
-                      <button className="btn btn-danger" onClick={onDelete}>
+                      <button className="btn btn-danger" onClick={() => onDelete(post._id)}>
                         <i className="fas fa-trash">&nbsp;Delete</i>
                       </button>
                     </Link>
