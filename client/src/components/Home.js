@@ -81,6 +81,14 @@ const App = () => {
       });
   };
 
+  const onDelete = (id) => {
+
+    axios.delete(`/post/delete/${id}`).then((res) => {
+      alert("Post Deleted Successfully");
+      this.getPosts();
+    });
+  }
+
   return (
     <div className="container">
       <div className="row justify-content-center">
@@ -119,8 +127,8 @@ const App = () => {
                     </Link>
                   </td>
                   <td>
-                    <Link>
-                      <button className="btn btn-danger">
+                    <Link >
+                      <button className="btn btn-danger" onClick={onDelete}>
                         <i className="fas fa-trash">&nbsp;Delete</i>
                       </button>
                     </Link>
