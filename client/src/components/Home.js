@@ -122,7 +122,7 @@ const App = () => {
                   <td>{post.description}</td>
                   <td>{post.postCategory}</td>
                   <td>
-                    <Link to={`/edit/${post.id}`}>
+                    <Link to={`/post/edit/${post.id}`}>
                       <button className="btn btn-primary">
                         <i className="fas fa-edit">&nbsp;Edit</i>
                       </button>
